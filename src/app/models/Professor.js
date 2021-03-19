@@ -39,6 +39,7 @@ class Professor extends Model {
       {
         sequelize,
         schema: 'sequelize',
+        tableName: 'professor',
       }
     );
 

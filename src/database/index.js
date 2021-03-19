@@ -1,7 +1,7 @@
 import Sequelize from 'sequelize';
 import databaseConfig from '../config/database';
 
-import User from '../app/models/User';
+// import User from '../app/models/User';
 import Aluno from '../app/models/Aluno';
 import AlunoNota from '../app/models/AlunoNota';
 import AlunoTelefone from '../app/models/AlunoTelefone';

@@ -10,14 +10,19 @@ class Feriado extends Model {
           autoIncrement: true,
           primaryKey: true,
         },
-        name: {
+        descricao: {
           type: Sequelize.DataTypes.STRING,
+          allowNull: false,
+        },
+        data: {
+          type: Sequelize.DataTypes.DATE,
           allowNull: false,
         },
       },
       {
         sequelize,
         schema: 'sequelize',
+        tableName: 'feriado',
       }
     );
 

@@ -18,6 +18,7 @@ class TurmaProfessor extends Model {
       {
         sequelize,
         schema: 'sequelize',
+        tableName: 'turma_professor',
       }
     );
 

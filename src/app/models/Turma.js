@@ -26,10 +26,23 @@ class Turma extends Model {
       {
         sequelize,
         schema: 'sequelize',
+        tableName: 'turma',
       }
     );
 
     return this;
+  }
+
+  static associate(models) {
+    this.hasMany(models.Aluno, {
+      as: 'alunos',
+      foreignKey: 'turma_id',
+    });
+    this.belongsToMany(models.Professor, {
+      as: 'professores',
+      foreignKey: 'turma_id',
+      through: 'turma_professor',
+    });
   }
 }
 

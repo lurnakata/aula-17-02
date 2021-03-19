@@ -18,6 +18,7 @@ class Materia extends Model {
       {
         sequelize,
         schema: 'sequelize',
+        tableName: 'materia',
       }
     );
 

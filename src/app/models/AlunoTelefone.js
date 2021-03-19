@@ -10,19 +10,15 @@ class AlunoTelefone extends Model {
           autoIncrement: true,
           primaryKey: true,
         },
-        descricao: {
+        numero: {
           type: Sequelize.DataTypes.STRING,
-          allowNull: false,
-        },
-        nota: {
-          type: Sequelize.DataTypes.INTEGER,
           allowNull: false,
         },
         aluno_id: {
           type: Sequelize.DataTypes.INTEGER,
           allowNull: false,
         },
-        materia_id: {
+        tipo_id: {
           type: Sequelize.DataTypes.INTEGER,
           allowNull: false,
         },
@@ -30,6 +26,7 @@ class AlunoTelefone extends Model {
       {
         sequelize,
         schema: 'sequelize',
+        tableName: 'aluno_telefone',
       }
     );
 

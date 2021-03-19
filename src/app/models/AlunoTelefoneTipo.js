@@ -18,10 +18,18 @@ class AlunoTelefoneTipo extends Model {
       {
         sequelize,
         schema: 'sequelize',
+        tableName: 'aluno_telefone_tipo',
       }
     );
 
     return this;
+  }
+
+  static associate(models) {
+    this.hasMany(models.AlunoTelefone, {
+      as: 'aluno_telefone',
+      foreignKey: 'tipo_id',
+    });
   }
 }
 

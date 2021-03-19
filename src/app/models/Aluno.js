@@ -46,10 +46,28 @@ class Aluno extends Model {
       {
         sequelize,
         schema: 'sequelize',
+        tableName: 'aluno',
       }
     );
 
     return this;
+  }
+
+  static associate(models) {
+    this.belongsTo(models.Turma, {
+      as: 'turma',
+      foreignKey: 'turma_id',
+    });
+
+    this.hasMany(models.AlunoNota, {
+      as: 'alunos_notas',
+      foreignKey: 'aluno_id',
+    });
+
+    this.hasMany(models.AlunoTelefone, {
+      as: 'aluno_telefones',
+      foreignKey: 'aluno_id',
+    });
   }
 }
 

@@ -30,6 +30,7 @@ class AlunoNota extends Model {
       {
         sequelize,
         schema: 'sequelize',
+        tableName: 'aluno_nota',
       }
     );
 
