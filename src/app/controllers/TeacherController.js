@@ -1,8 +1,8 @@
-import StudentGradeService from '../services/StudentGradeService';
+import TeacherService from '../services/TeacherService';
 
-const service = new StudentGradeService();
+const service = new TeacherService();
 
-class StudentGradeController {
+class TeacherController {
   async index(request, response) {
     return response.json(await service.get());
   }
@@ -13,22 +13,16 @@ class StudentGradeController {
   }
 
   async store(request, response) {
-    const { descricao, nota, alunoId, materiaId } = request.body;
-    const result = await service.create(descricao, nota, alunoId, materiaId);
+    const { nome, idade, cidade, uf, materiaId } = request.body;
+    const result = await service.create(nome, idade, cidade, uf, materiaId);
 
     return response.json(result);
   }
 
   async update(request, response) {
     const { id } = request.params;
-    const { descricao, nota, alunoId, materiaId } = request.body;
-    const result = await service.update(
-      id,
-      descricao,
-      nota,
-      alunoId,
-      materiaId
-    );
+    const { nome, idade, cidade, uf, materiaId } = request.body;
+    const result = await service.update(id, nome, idade, cidade, uf, materiaId);
 
     return response.json(result);
   }
@@ -41,4 +35,4 @@ class StudentGradeController {
   }
 }
 
-export default new StudentGradeController();
+export default new TeacherController();

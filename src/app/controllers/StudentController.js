@@ -1,33 +1,45 @@
 import StudentService from '../services/StudentService';
+import User from '../models/User';
 
 const service = new StudentService();
 
 class StudentController {
   async index(request, response) {
-    response.json(await service.get());
+    return response.json(await User.findAll());
+    // return response.json(await service.get());
   }
 
   async show(request, response) {
     const { id } = request.params;
-    response.json(await service.getById(id));
+    return response.json(await service.getById(id));
   }
 
   async store(request, response) {
     const { nome, idade, turmaId, dataNascimento } = request.body;
-    response.json(await service.create(nome, idade, turmaId, dataNascimento));
+    const result = await service.create(nome, idade, turmaId, dataNascimento);
+
+    return response.json(result);
   }
 
   async update(request, response) {
     const { id } = request.params;
     const { nome, idade, turmaId, dataNascimento } = request.body;
-    response.json(
-      await service.update(id, nome, idade, turmaId, dataNascimento)
+    const result = await service.update(
+      id,
+      nome,
+      idade,
+      turmaId,
+      dataNascimento
     );
+
+    return response.json(result);
   }
 
   async delete(request, response) {
     const { id } = request.params;
-    response.json(await service.delete(id));
+    await service.delete(id);
+
+    return response.sendStatus(202);
   }
 }
 
